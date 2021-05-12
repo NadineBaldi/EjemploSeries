@@ -40,6 +40,10 @@ public class Catalogo {
 		System.out.println(series);
 	}
 	
+	//este metodo se comporta segun lo que la funcion qe recibe como argumento se comporte
+	//buscar agrega a una lista todas las series que cumplen con la condicion
+	//dicha condicion la paso como parametro en la App (ver lo de Predicate en App)
+	//por ej. que tenga más de 5000 visualizaciones o que sea del genero SUSPENSO, etc
 	public List<Serie> buscar(Predicate<Serie> condiciones) {
 		List<Serie> resultado = new ArrayList<Serie>();
 		

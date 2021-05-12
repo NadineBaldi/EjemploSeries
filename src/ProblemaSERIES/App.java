@@ -1,5 +1,7 @@
 package ProblemaSERIES;
 
+import java.util.function.Predicate;
+
 public class App {
 
 	public static void main(String[] args) {
@@ -12,8 +14,14 @@ public class App {
 		Catalogo cat = new Catalogo();
 		cat.agregar(s1).agregar(s2).agregar(s3).agregar(s4).agregar(s5);
 	
-		cat.imprimirOrdenadoPorTitulo();
-		cat.imprimirOrdenadoPorCalificacion();
+		//cat.imprimirOrdenadoPorTitulo();
+		//cat.imprimirOrdenadoPorCalificacion();
+	
+		Predicate<Serie> p1 = unaSerie -> unaSerie.getVisualizaciones() > 5000;
+		Predicate<Serie> p2 = unaSerie -> unaSerie.getGenero().equals(Genero.SUSPENSO);
+		Predicate<Serie> p3 = unaSerie -> unaSerie.getGenero().equals(Genero.CRIMEN);
+		System.out.println(cat.buscar(p1.and(p2).or(p3)));
+		
 	}
 
 }
